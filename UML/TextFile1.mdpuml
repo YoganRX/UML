@@ -1,0 +1,75 @@
+﻿@startuml
+
+class User {
+	+ id
+	+ username
+	- password
+	+ role
+}
+
+class SuperAdmin implements User {
+	+ id
+	+ username
+	- password
+	+ role
+	+ AddUser()
+	+ RemoveUser()
+	+ UpdateUser()
+	+ SearchUser()
+	+ AddEmployee()
+	+ RemoveEmployee()
+	+ UpdateEmployee()
+	+ SearchEmployee()
+}
+
+class RegisterHandler implements User {
+	+ id
+	+ username
+	- password
+	+ role
+	+ AddEmployee()
+	+ RemoveEmployee()
+	+ UpdateEmployee()
+	+ SearchEmployee()
+}
+
+class Receptionist implements User {
+	+ id
+	+ username
+	- password
+	+ role
+	+ SearchUser()
+	+ SearchEmployee()
+}
+
+class Employee {
+	+ id
+	+ department
+	+ birthDate
+	+ deathDate
+}
+
+class Ant implements Employee {
+	+ id
+	+ department
+	+ birthDate
+	+ deathDate
+}
+
+class Bee implements Employee {
+	+ id
+	+ department
+	+ birthDate
+	+ deathDate
+}
+
+User <-- SuperAdmin : Manages
+User <-- RegisterHandler : Manages
+User <-- Receptionist : Searches
+
+
+
+Employee <-- Ant : Is-a
+Employee <-- Bee : Is-a
+
+@enduml
